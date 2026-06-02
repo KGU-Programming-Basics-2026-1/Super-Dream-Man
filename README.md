@@ -1,4 +1,9 @@
 # Super-Dream-Man
+아래 두개 링크 들어가서 코드 작성 및 키밋 메세지 작성할 떄 저기에 맞게 작성하고 있는지 확인하고 작성하세요 이슈넘버는 아래 Git Workflow Guide를 따라하시면 됩니다.
+## python coding standard
+https://peps.python.org/pep-0008/
+## conventinal commit
+https://www.conventionalcommits.org/en/v1.0.0/
 
 # 🛠 **Git Workflow Guide (Visual C++ in Visual Studio)**
 
