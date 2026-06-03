@@ -1,4 +1,5 @@
 # settings.py
+import enum
 
 # Debug settings
 DEBUG = True
@@ -14,6 +15,13 @@ FPS = 120
 TILE_SIZE = 40
 GRID_WIDTH = SCREEN_WIDTH / TILE_SIZE
 GRID_HEIGHT = SCREEN_HEIGHT / TILE_SIZE
+class TileType(enum):
+    BREAKABLE = 0
+    UNBREAKABLE = 1
+    BACKGROUND = 2
+
+
+
 
 # Physics settings
 GRAVITY = (0, -9.81)
@@ -27,5 +35,4 @@ AIR_RESISTANCE = 0.1
 CAMERA_SPEED_MAX = 10
 CAMERA_SPEED_ACCELERATION = 0.5
 CAMERA_SPEED_DECELERATION = 0.7
-
 

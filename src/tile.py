@@ -2,8 +2,9 @@
 import settings
 
 class Tile:
-    def __init__(self, x, y):
-        self.grid_pos = (x, y)
+    def __init__(self, x, y, type):
+        self.grid_pos = (x * settings.TILE_SIZE, y * settings.TILE_SIZE)
+        self.type = type
 
     def get_bounding_box(self):
         x, y = self.grid_pos
