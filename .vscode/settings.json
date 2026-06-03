@@ -1,0 +1,8 @@
+{
+  "python.defaultInterpreterPath": "C:\\Users\\algie\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+  "python.terminal.activateEnvironment": false,
+  "code-runner.executorMap": {
+    "python": "C:\\Users\\algie\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+  },
+  "python-envs.defaultEnvManager": "ms-python.python:system"
+}
