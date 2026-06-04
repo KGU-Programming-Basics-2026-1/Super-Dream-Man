@@ -1,5 +1,5 @@
 # settings.py
-import enum
+from enum import *
 
 # Debug settings
 DEBUG = True
@@ -15,13 +15,19 @@ FPS = 120
 TILE_SIZE = 40
 GRID_WIDTH = SCREEN_WIDTH / TILE_SIZE
 GRID_HEIGHT = SCREEN_HEIGHT / TILE_SIZE
-class TileType(enum):
-    BREAKABLE = 0
-    UNBREAKABLE = 1
-    BACKGROUND = 2
 
+class TileTypes(IntEnum):
+    TILE_BREAKABLE = 0
+    TILE_UNBREAKABLE = 1
+    TILE_INTERACTIVE = 2
 
-
+# Painter's algorithms
+class Layer(IntEnum):
+    LAYER_BACKGROUND = 0
+    LAYER_GAME_OBJECT = 1
+    LAYER_CHRACTER = 2
+    LAYER_PLAYER = 3
+    LAYER_UI = 4
 
 # Physics settings
 GRAVITY = (0, -9.81)

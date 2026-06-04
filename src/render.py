@@ -1,27 +1,36 @@
 # render.py
 import turtle
-import character
+from settings import *
+from character import *
+from queue import PriorityQueue
 
-class Renderer:
+drawer = turtle.Turtle()
+
+
+class RenderQueue:
     def __init__(self, width, height):
-        self.screen = turtle.Screen()
-        self.screen.setup(width, height)
-        self.screen.tracer(0)
+        drawer.screen = turtle.Screen()
+        drawer.screen.setup(width, height)
+        drawer.screen.tracer(0)
+        self.queue = PriorityQueue()
+        self.counter = 0
+        drawer.screen.setworldcoordinates(0, 0, width, height)
     
-    def draw_character(self, character):
-        turtle.goto(character.pos)
-        turtle.circle(20, 'blue' if character.alive else 'red')
+    def enqueue(self, obj):        
+        self.queue.put((obj.layer, self.counter, obj))
+        self.counter += 1
 
-    def draw_tile(self, tile):
-        turtle.goto(tile.pos)
-        turtle.begin_fill()
-        turtle.square(40, 'green' if tile.breakable else 'black')
-        turtle.end_fill()
-
+    def render(self):    
+        drawer.screen.clear()
+        while not self.queue.empty():
+            layer, counter, obj = self.queue.get()
+            obj.draw()
 
     def release(self):
-        turtle.bye()
+        drawer.bye()
     
     def clear(self):
-        turtle.clear()
+        drawer.clear()
+    
+
     
