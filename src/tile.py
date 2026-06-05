@@ -1,8 +1,8 @@
 # tile.py
-import render
+from render import *
 from settings import *
 from collision import Collision
-
+import turtle
 
 class Tile(Collision):
     def __init__(self, x, y, type):
@@ -18,13 +18,18 @@ class Tile(Collision):
                 , (x + 1) * TILE_SIZE
                 , (y + 1) * TILE_SIZE)
     
-    def draw(self):
-        render.drawer.up()
-        render.drawer.goto(self.grid_pos)
-        render.drawer.down()
-        render.drawer.color(0x9e080f)
+    def draw(self, drawer : turtle.Turtle):
+        drawer.up()
+        drawer.right(90)
+        drawer.penup()
+        drawer.goto(self.grid_pos[0], self.grid_pos[1])
+        drawer.pendown()
+        drawer.color('red')
         for i in range(4):
-            render.drawer.forward(TILE_SIZE)
-            render.drawer.left()
+            drawer.begin_fill()
+            drawer.forward(TILE_SIZE)
+            drawer.left(90)
+            drawer.end_fill()
+            
         
         # Draw sprite

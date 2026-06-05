@@ -1,9 +1,8 @@
 # main.py
-from asyncio import sleep
 
 from settings import *
-from character import *
-from render import * 
+from render import *
+from character import * 
 from tile import *
 from map import *
 
@@ -12,17 +11,19 @@ def init():
     render_queue = RenderQueue(SCREEN_WIDTH, SCREEN_HEIGHT)
     global map
     map = load_map1_1()
-    
-    
+
+    global player
+    player = Character('player',  5, 20, wid)
     
     global shouldRun
     shouldRun = True
     
+
 def input():
     assert(False, "input() is not implemented yet")
 
 def update(delta_time):
-    assert(False)
+    
 
 def render():
     for row in map:
@@ -33,9 +34,10 @@ def render():
     
     
 
-    
+
 
 def shutdown():
+    
     assert(False, "shutdown() is not implemented yet")
 
 def main():

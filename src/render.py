@@ -1,36 +1,40 @@
 # render.py
-import turtle
+import tkinter as tk
+import numpy as np
+from enum import *
 from settings import *
-from character import *
-from queue import PriorityQueue
 
-drawer = turtle.Turtle()
+# RGB color array of 16-bit colors (5-6-5 format)
+# Each color is stored as a tuple (R, G, B) with 16-bit depth
+rgb_colors = np.array([
+    (31, 0, 0),      # Red
+    (0, 63, 0),      # Green
+    (0, 0, 31),      # Blue
+    (31, 63, 0),     # Yellow
+    (31, 0, 31),     # Magenta
+    (0, 63, 31),     # Cyan
+    (31, 63, 31),    # White
+    (0, 0, 0),       # Black
+], dtype=np.uint16)
 
+class Colors(IntEnum):
+    RED = 0
+    GREEN = 1
+    BLUE = 2
+    YELLOW = 3
+    MAGENTA = 4
+    CYAN = 5
+    WHITE = 6
+    BLACK = 7
 
-class RenderQueue:
-    def __init__(self, width, height):
-        drawer.screen = turtle.Screen()
-        drawer.screen.setup(width, height)
-        drawer.screen.tracer(0)
-        self.queue = PriorityQueue()
-        self.counter = 0
-        drawer.screen.setworldcoordinates(0, 0, width, height)
-    
-    def enqueue(self, obj):        
-        self.queue.put((obj.layer, self.counter, obj))
-        self.counter += 1
+class Renderer:
+    def __init__(self, root : tk.Tk):
+        self.root = root
+        self.root.geometry(f'{SCREEN_WIDTH}x{SCREEN_HEIGHT}')
 
-    def render(self):    
-        drawer.screen.clear()
-        while not self.queue.empty():
-            layer, counter, obj = self.queue.get()
-            obj.draw()
+        self.label = tk.Label(self.root)
+        self.label.pack()
 
-    def release(self):
-        drawer.bye()
-    
-    def clear(self):
-        drawer.clear()
-    
+        self.frame = np.zeros((SCREEN_HEIGHT, SCREEN_WIDTH, 3), dtype=np.uint8)
 
-    
+        

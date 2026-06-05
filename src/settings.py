@@ -5,14 +5,14 @@ from enum import *
 DEBUG = True
 
 # Screen settings
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 1280
+SCREEN_HEIGHT = 720
 
 # If FPS is 0, the game will run as fast as possible
 FPS = 120
 
 # Tile settings
-TILE_SIZE = 40
+TILE_SIZE = 20
 GRID_WIDTH = SCREEN_WIDTH / TILE_SIZE
 GRID_HEIGHT = SCREEN_HEIGHT / TILE_SIZE
 
